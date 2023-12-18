@@ -1,0 +1,10 @@
+#databaseChangeLog:
+#  - include:
+#      file: /changes/m1/2023.12.14-add-user-table.yaml
+#      relativeToChangelogFile: true
+#  - include:
+#      file: /changes/m4/2023.12.14-add-role-user.yaml
+#      relativeToChangelogFile: true
+#  - include:
+#      file: /changes/m2/2023.12.15-add-permission-user.yaml
+#      relativeToChangelogFile: true

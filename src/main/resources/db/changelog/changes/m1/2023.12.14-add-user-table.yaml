@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: created-new-user-table
+      author: hsopoyev3@gmail.com
+      changes:
+        - createTable:
+            tableName: "'user'"
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                  name: id
+                  type: int
+              - column:
+                  name: name
+                  type: varchar
+              - column:
+                  name: email
+                  type: varchar
+                  constraints:
+                    unique: true
+              - column:
+                  name: phone_number
+                  type: varchar
+                  constraints:
+                    unique: true
+              - column :
+                  name: password
+                  type: varchar

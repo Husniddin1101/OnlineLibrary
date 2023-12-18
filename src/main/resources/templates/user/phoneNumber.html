@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" >
+  <title>Title</title>
+  <link th:href="@{css/user/sign-up.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<h1>ENTER PHONE NUMBER</h1>
+<form method="post" th:action="@{/phoneNumber}">
+  <input name="phoneNumber" type="text" placeholder="Enter phone number">
+  <input name="password" type="text" placeholder="Enter new password">
+  <button type="submit">UPDATE</button>
+</form>
+</div>
+
+</body>
+</html>

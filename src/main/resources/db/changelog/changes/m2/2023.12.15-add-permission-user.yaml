@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-permission-table
+      author: hsopoyev3@gmail.com
+      changes:
+        - sqlFile:
+            path: add-permission.sql
+            relativeToChangelogFile: true

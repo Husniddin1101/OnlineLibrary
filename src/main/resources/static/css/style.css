@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(229, 226, 188, 0.52);
+}
+
+header {
+    background-color: #06403c;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+nav {
+    background-color: #010101;
+    padding: 0.5em;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1em;
+    margin: 0 0.5em;
+}
+
+section {
+    padding: 1em;
+}
+
+.book {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1em;
+    margin: 1em;
+    background-color: #fff;
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+form {
+    margin: 1em;
+    padding: 1em;
+    background-color: #fbfaef;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+input,
+textarea,
+button {
+    margin-bottom: 16px;
+    width: 99%;
+    padding: 8px;
+}

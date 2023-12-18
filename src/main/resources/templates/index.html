@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec ="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Library</title>
+    <link rel="stylesheet" th:href="@{css/style.css}" href="../static/css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Online Library</h1>
+</header>
+
+<nav>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/book/create}">Add Book</a>
+    <a href="">My Library</a>
+    <a sec:authorize="isAuthenticated()" th:href="@{/sign-out}">Log Out</a>
+    <a sec:authorize="isAnonymous()" th:href="@{/user/create}">Registration</a>
+    <a sec:authorize="isAnonymous()" th:href="@{/sign-in}">Sign In</a>
+</nav>
+
+<section>
+    <form th:action="@{/book}" method="get">
+        <h1>Search:</h1>
+        <input type="text" name="search" placeholder="Enter book title or author">
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="book" th:if="${books}!=null" >
+        <div th:each="book: ${books}">
+            <h3 th:text="${book.name}"></h3>
+            <p th:text="${book.author}"></p>
+            <a th:href="@{book/{bookId}(bookId=${book.id})}">
+                <button >Details</button>
+            </a>
+            <a th:href="@{book/{bookId}/update(bookId=${book.id})}">
+                <button >Edit Book</button>
+            </a>
+        </div>
+    </div>
+
+<!--    <div class="book">-->
+<!--        <img src="book2.jpg" alt="Book Cover">-->
+<!--        <h3>Another Book</h3>-->
+<!--        <p>Author: Jane Smith</p>-->
+<!--        <p>Genre: Mystery</p>-->
+<!--        <p>Description: ....</p>-->
+<!--        <button>Details</button>-->
+<!--    </div>-->
+
+    <!-- Add more book listings as needed -->
+
+</section>
+
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    password: 2005Husniddin
+    username: postgres
+    url: jdbc:postgresql://db.xedjzoaoeuldiowcxysu.supabase.co:5432/postgres
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true

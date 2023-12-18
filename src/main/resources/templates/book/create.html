@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet" th:href="@{../css/style.css}" href="../../static/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Online Library</h1>
+</header>
+
+<!--<nav>-->
+<!--    <a th:href="">Home</a>-->
+<!--    <a th:href="">Add Book</a>-->
+<!--    <a th:href="">My Library</a>-->
+<!--    <a th:href="">Registration</a>-->
+<!--</nav>-->
+
+<section>
+    <h2>Add Book</h2>
+    <form th:action="@{/book}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your name">
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" placeholder="Author name">
+
+        <label for="file">Feedback:</label>
+        <input type="file" id="file" name="file" placeholder="Enter your file">
+
+        <button type="submit">Add Book</button>
+    </form>
+</section>
+</body>
+</html>

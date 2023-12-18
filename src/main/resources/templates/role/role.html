@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Role</title>
+</head>
+<body>
+<h1>Permission </h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="permission: ${role.getPermission()}">
+        <th th:text="${permission.id}" scope="row"></th>
+        <td th:text="${permission.name}" colspan="2"></td>
+        <td colspan="2">
+            <form th:action="@{/permission/{id}(id=${role.id})}" th:method="delete">
+                <button class="btn btn-danger" type="submit">DELETE</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
