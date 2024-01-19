@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Профиль</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/uikit.min.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <script th:src="@{/js/uikit.min.js}"></script>
+    <script th:src="@{/js/uikit-icons.min.js}"></script>
+    <link rel="stylesheet" th:href="@{../../css/style.css}" href="../../static/css/style.css">
+
+</head>
+
+<style>
+    body {
+        background: #ffffff;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #1000ae;
+    }
+
+    .profile-button {
+        background: #0c004e;
+        box-shadow: none;
+        border: none
+    }
+
+    .profile-button:hover {
+        background: #001a75;
+    }
+
+    .profile-button:focus {
+        background: #1600bf;
+        box-shadow: none
+    }
+
+    .profile-button:active {
+        background: #682773;
+        box-shadow: none
+    }
+
+    .back:hover {
+        color: #682773;
+        cursor: pointer
+    }
+
+    .form-g {
+        background: #007bff;
+    }
+    .labels {
+        font-size: 11px
+    }
+
+    .add-experience:hover {
+        background: #BA68C8;
+        color: #fff;
+        cursor: pointer;
+        border: solid 1px #BA68C8
+    }
+
+
+</style>
+<body>
+<header>
+    <h1>Online Library</h1>
+</header>
+
+<nav>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/cart}">My Library</a>
+    </nav>
+</nav>
+
+
+
+<div class="container rounded bg-white mt-5 mb-3  ">
+    <div class="row">
+        <div class="col-md-4 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+
+                <img class="rounded-circle mt-8"
+                     width="350px"
+                     th:src="${userPic}">
+
+                <span class="font-weight-bold" th:text="${user.name}"></span>
+                <span class="text-black-50" th:text="${user.email}"></span>
+                <a sec:authorize="isAuthenticated()" th:href="@{/sign-out}">Log Out
+                    <img src="https://img.icons8.com/?size=50&id=arrojWw9F5j5&format=gif" width="24" height="24"
+                         alt="icon">
+                </a>
+            </div>
+
+        </div>
+        <div class="col-md-8 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                    <a href="/">
+                        <img src="https://img.icons8.com/?size=64&id=XKFHfgAsrGtk&format=gif" alt="home"
+                             width="24" height="24">
+                    </a>
+                </div>
+        <form th:action="@{/user/{id}(id=${user.id})}" th:method="POST">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+
+                            <label class="labels">Name</label>
+                            <input type="text" class="form-control" name="name" th:placeholder="${user.getName()}">
+                        </div>
+                        <div class="col-md-12">
+
+                            <label class="labels">Surname</label>
+                            <input type="text" class="form-control" th:placeholder="${user.surname}" name="surname">
+                        </div>
+                        <div class="col-md-12"><label class="labels">Email</label>
+                            <input type="email" class="form-control" th:placeholder="${user.email}" name="email">
+                        </div>
+                        <div class="col-md-12"><label class="labels">Phone Number</label>
+                            <input type="text" class="form-control" th:placeholder="${user.phoneNumber}" name="phoneNumber">
+                        </div>
+                        <div class="col-md-12"><label class="labels">Password</label>
+                            <input type="password" class="form-control" th:placeholder="'enter password'" name="password">
+                        </div>
+                    </div>
+                    <br>
+            <br>
+            <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+        </form>
+
+
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

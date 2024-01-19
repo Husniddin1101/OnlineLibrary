@@ -1,6 +1,6 @@
 package com.example.online_library.role.entity;
 
-import com.example.online_library.permission.Permission;
+import com.example.online_library.role.permission.Permission;
 import com.example.online_library.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;

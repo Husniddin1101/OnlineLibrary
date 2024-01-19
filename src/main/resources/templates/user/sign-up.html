@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container">
-<form id="signUpForm" th:action="@{/sign-up}" method="post">
+<form id="signUpForm" th:action="@{/sign-up}" method="post" enctype="multipart/form-data">
     <h2>Sign Up</h2>
 
     <label for="name">Name:</label>
@@ -25,12 +25,17 @@
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
 
+    <label for="picture">Profile Photo:</label>
+    <input class="input-book" type="file" id="picture" name="picture" placeholder="Enter your picture" aria-label="file example" required>
+    <br>
+
     <label for="password">Role:</label>
     <select name="role">
         <option th:each="role: ${roles}"
                 th:value="${role.name}"
                 th:text="${role.name}">Role:</option>
     </select>
+    <br>
     <button type="submit">Sign Up</button>
 </form>
 </div>

@@ -1,4 +1,4 @@
-package com.example.online_library.authorization;
+package com.example.online_library.security.authorization;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;

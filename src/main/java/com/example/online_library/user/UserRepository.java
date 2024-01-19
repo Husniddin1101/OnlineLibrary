@@ -19,4 +19,8 @@ public interface UserRepository extends JpaRepository<User, UUID> {
     @Transactional
     @Query("UPDATE User u SET u.password = :password WHERE u.phoneNumber = :phoneNumber")
     void findByPhoneNumberAndUpdate(String phoneNumber, String password);
+
+    User findByName(String name);
+
+    Optional<User> findByPhoneNumber(String phoneNumber);
 }

@@ -1,0 +1,188 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cart</title>
+    <link rel="icon" href="https://img.icons8.com/?size=64&id=o4V4IXgZasg6&format=png" type="image/png">
+    <link rel="stylesheet" th:href="@{../css/style.css}" href="../../static/css/style.css">
+</head>
+<style>
+    td form {
+        margin: 0 0;
+        padding: 0px 0px;
+    }
+
+    td form button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        display: block;
+        text-align: center;
+    }
+
+    td form button img {
+        max-width: 100px; /* Максимальная ширина изображения */
+        max-height: 100px; /* Максимальная высота изображения */
+    }
+
+    /* Дополнительные стили по вашему выбору */
+
+
+    /* Основные стили таблицы */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    table, th, td {
+        border: 1.7px solid #001941;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+    }
+
+    /* Стили для заголовков */
+    th {
+        background-color: #02004a;
+        color: white;
+    }
+
+    /* Стили для четных строк */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Стили для наведения курсора на строку */
+    tr:hover {
+        background-color: #ddd;
+    }
+
+
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    form {
+
+        background-color: #eff3fb;
+        border: 1px solid #000000;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="date"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ffffff;
+        border-radius: 3px;
+        font-size: 16px;
+    }
+
+    .button {
+        background-color: #0062aa;
+        color: #ffffff;
+        padding: 15px 0px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    input[type="submit"] {
+        background-color: #000000;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #333333;
+    }
+
+    .car-image {
+        max-width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        transition: transform 0.5s;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img#myImage:hover {
+        transform: scale(1.1);
+    }
+
+
+</style>
+
+<body>
+
+<header>
+    <h1>Online Library</h1>
+</header>
+
+<nav>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a href="/cart">My Library</a>
+    </nav>
+</nav>
+
+
+<table class="simple-table">
+    <thead>
+    <tr>
+        <th>
+            <a href="/">
+                <img src="https://img.icons8.com/?size=64&id=XKFHfgAsrGtk&format=gif" alt="Ваша иконка" width="24"
+                     height="24">
+            </a></th>
+        <th>name</th>
+        <th>author</th>
+        <th>Download ↓</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="forBook : ${CartBooks}">
+        <td>
+            <form style="width: 100px; height: 100px;" th:method="get" th:action="@{/book/{id}(id=${forBook.id})}">
+                <button style="float: revert" name="action"
+                        value="blue">
+                    <img id="myImage" class="car-image" th:src="${forBook.getFilePath()}">
+                </button>
+            </form>
+        </td>
+        <td th:text="${forBook.name}">
+        </td>
+
+        <td th:text="${forBook.author}"></td>
+        <td>
+            <form th:action="@{/downloadFile/{id}(id=${forBook.id})}" method="post">
+                <button class="button" type="submit">Download ↓</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

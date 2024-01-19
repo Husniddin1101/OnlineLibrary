@@ -1,8 +1,8 @@
 spring:
   datasource:
-    password: 2005Husniddin
+    password: 20052005h
     username: postgres
-    url: jdbc:postgresql://db.xedjzoaoeuldiowcxysu.supabase.co:5432/postgres
+    url: jdbc:postgresql://localhost:5432/postgres
   jpa:
     show-sql: true
     hibernate:

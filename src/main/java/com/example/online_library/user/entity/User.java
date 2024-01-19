@@ -1,5 +1,6 @@
 package com.example.online_library.user.entity;
 
+import com.example.online_library.cart.entity.Cart;
 import com.example.online_library.role.entity.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -26,10 +27,14 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String phoneNumber;
     private String password;
+    private String pictureName;
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @ManyToOne
     private Role role;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Cart> carts ;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -63,4 +68,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

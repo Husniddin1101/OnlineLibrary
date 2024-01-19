@@ -46,3 +46,9 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+    overflow: hidden; }
+.form-group:last-child {
+    margin-bottom: 0px; }

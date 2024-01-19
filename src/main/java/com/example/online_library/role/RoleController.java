@@ -19,6 +19,7 @@ public class RoleController {
         model.addAttribute("roles", roles);
         return "role/roles";
     }
+
     @GetMapping("/{id}")
     public String getRole(@PathVariable Integer id , Model model) {
         Role role = roleService.getRole(id);

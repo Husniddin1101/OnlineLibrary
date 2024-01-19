@@ -11,26 +11,27 @@
     <h1>Online Library</h1>
 </header>
 
-<!--<nav>-->
-<!--    <a th:href="">Home</a>-->
-<!--    <a th:href="">Add Book</a>-->
-<!--    <a th:href="">My Library</a>-->
-<!--    <a th:href="">Registration</a>-->
-<!--</nav>-->
+<nav>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a href="/cart">My Library</a>
+    </nav>
+</nav>
 
 <section>
     <h2>Add Book</h2>
-    <form th:action="@{/book}" method="post">
+    <form th:action="@{/book}" method="post" enctype="multipart/form-data">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your name">
-
+        <input class="input-book" type="text" id="name" name="name" placeholder="Your name">
+        <br>
         <label for="author">Author:</label>
-        <input type="text" id="author" name="author" placeholder="Author name">
+        <input class="input-book" type="text" id="author" name="author" placeholder="Author name">
+        <br>
+        <label for="file">Book:</label>
+        <input class="input-book" type="file" id="file" name="file" placeholder="Enter your file" aria-label="file example" required>
+        <br>
 
-        <label for="file">Feedback:</label>
-        <input type="file" id="file" name="file" placeholder="Enter your file">
-
-        <button type="submit">Add Book</button>
+        <button class="input-book" type="submit">Add Book</button>
     </form>
 </section>
 </body>
